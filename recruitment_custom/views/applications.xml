@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.menu" id="hr_recruitment.menu_hr_recruitment_root">
+        <field name="sequence">1</field>
+    </record>
+
+    <record model="ir.ui.view" id="crm_case_form_view_job_custom">
+        <field name="name">Jobs - Recruitment Form custom</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group" position="replace">
+                <notebook>
+                    <page string="General">
+                        <group>
+                            <group>
+                                <field name="partner_id" invisible="1"/>
+                                <field name="email_from" widget="email"/>
+                                <field name="email_cc" groups="base.group_no_one"/>
+                                <field name="partner_phone" widget="phone"/>
+                                <field name="partner_mobile" widget="phone"/>
+                                <field name="type_id" placeholder="Degree"/>
+                            </group>
+                            <group>
+                                <field name="categ_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                                <field name="user_id"/>
+                                <field name="priority" widget="priority"/>
+                                <field name="medium_id" groups="base.group_no_one"/>
+                                <field name="source_id"/>
+                            </group>
+                            <group string="Job">
+                                <field name="job_id"/>
+                                <field name="department_id"/>
+                                <field name="company_id" groups="base.group_multi_company" options="{&quot;no_open&quot;:True}"/>
+                            </group>
+                            <group string="Contract">
+                                <label for="salary_expected"/>
+                                <div class="o_row">
+                                    <field name="salary_expected"/>
+                                    <span attrs="{'invisible':[('salary_expected_extra','=',False)]}"> + </span>
+                                    <field name="salary_expected_extra" placeholder="Extra advantages..."/>
+                                </div>
+                                <label for="salary_proposed"/>
+                                <div class="o_row">
+                                    <field name="salary_proposed"/>
+                                    <span attrs="{'invisible':[('salary_proposed_extra','=',False)]}"> + </span>
+                                    <field name="salary_proposed_extra" placeholder="Extra advantages..."/>
+                                </div>
+                                <field name="availability"/>
+                                <field name="emp_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </page>
+                    
+                    <page string="Recruitment">
+                        <group>
+                            <group>
+                                <field name="package" />
+                                <field name="visa_country" />
+                                <field name="visa_type" />
+                                <field name="familty_status" />
+                                <field name="dependents" />
+                                <field name="accomodation" />
+                                <field name="transportation" />
+                                <field name="transportation_history" />
+                            </group>
+                            <group>
+                                <field name="medical_insurance" />
+                                <field name="carrier" />
+                                <field name="policy_type" />
+                                <field name="next_to_kin" />
+                                <field name="blood_type" />
+                                <field name="medical_history" />
+                            </group>
+                            <group string="Mobile">
+                                <field name="phone" />
+                                <field name="mob_spec" />
+                                <field name="plan" />
+                            </group>
+                            <group string="Computer">
+                                <field name="computer" />
+                                <field name="computer_spec" />
+                            </group>
+                            <group string="Software">
+                                <field name="office_lic_type" />
+                                <field name="ms_project_type" />
+                                <field name="ms_visio_type" />
+                                <field name="tresorit" />
+                                <field name="odoo" />
+                                <field name="cms_candy_type" />
+                                <field name="fms_type" />
+                            </group>
+                            <group string="Vacation">
+                                <field name="frequency" />
+                                <field name="duration" />
+                                <field name="flights" />
+                                <field name="number_of_tickets" />
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Decision">
+                        <group>
+                            <group>
+                                <field name="visa_type_recruit" />
+                                <field name="visa_number" />
+                                <field name="interim_AT" />
+                                <field name="final_AT" />
+                                <field name="interim_transport" />
+                                <field name="final_transport" />
+                                <field name="arrival_date" />
+                                <field name="travel_arrangements" />
+                            </group>
+                            <group>
+                                <field name="onboarding_manager" />
+                                <field name="line_manager" />
+                                <field name="status_incharge_manager" />
+                                <field name="approved_job_offer" />
+                                <field name="approved_by" />
+                                <field name="approval_date" />
+                                <field name="approved_by_chairman" />
+                                <field name="chairman_approval_date" />
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+</odoo>
