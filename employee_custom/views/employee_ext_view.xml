@@ -24,43 +24,52 @@
                     <field name="name_ar" placeholder="Employee's Name (Arabic)" required="False"/>
                 </h3>
             </xpath>
-            <xpath expr="//notebook/page[@name='public']" position="attributes">
-                <attribute name="string">General</attribute>
-            </xpath>
-            <field name="address_id" position="before">
-                <field name="user_id" string="Related User"/>
-            </field>
-            <xpath expr="//notebook/page[@name='hr_settings']" position="replace">
-            </xpath>
-            <xpath expr="//notebook/page[@name='public']/div/div" position="inside">
-                <group string="Genaral">
-                    <field name="join_date" />
-                    <field name="line_manager" />
-                    <field name="senior_manager" />
-                    <field name="contract_signing_date" />
-                </group>
-                <group string="Medical Insurance">
-                    <field name="medical_insur" />
-                    <field name="medical_insur_no" />
-                    <field name="MI_carrier" />
-                    <field name="MI_poloicy_type" />
-                    <field name="blood_type" />
-                    <field name="next_to_kin" />
-                    <field name="medical_history" />
-                </group>
-                <group string="Driving Details">
-                    <field name="driver_licence_no" />
-                    <field name="driver_licence_class" />
-                    <field name="vehicle_id" />
-                    <field name="vehicle_plate_no" />
-                </group>
-                <group string="Iqama Details">
-                    <field name="iqama_no" />
-                    <field name="iqama_name" />
-                    <field name="iqama_expiry" />
-                    <field name="iqama_profession" />
-                    <field name="iqama_profession_ar" />
-                </group>
+<!--            <xpath expr="//notebook/page[@name='public']" position="attributes">-->
+<!--                <attribute name="string">General</attribute>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//notebook/page[@name='public']/div/div" position="inside">-->
+<!--                <group name="user_id" string="Related User">-->
+<!--                    <field name="user_id"/>-->
+<!--                </group>-->
+<!--            </xpath>-->
+<!--            <field name="address_id" position="before">-->
+<!--                <field name="user_id" string="Related User"/>-->
+<!--            </field>-->
+<!--            <xpath expr="//notebook/page[@name='hr_settings']" position="replace">-->
+<!--            </xpath>-->
+            <xpath expr="//notebook/page[@name='public']" position="after">
+                <page string="General">
+                    <group>
+                        <group string="Genaral">
+                            <field name="join_date" />
+                            <field name="line_manager" />
+                            <field name="senior_manager" />
+                            <field name="contract_signing_date" />
+                        </group>
+                        <group string="Medical Insurance">
+                            <field name="medical_insur" />
+                            <field name="medical_insur_no" />
+                            <field name="MI_carrier" />
+                            <field name="MI_poloicy_type" />
+                            <field name="blood_type" />
+                            <field name="next_to_kin" />
+                            <field name="medical_history" />
+                        </group>
+                        <group string="Driving Details">
+                            <field name="driver_licence_no" />
+                            <field name="driver_licence_class" />
+                            <field name="vehicle_id" />
+                            <field name="vehicle_plate_no" />
+                        </group>
+                        <group string="Iqama Details">
+                            <field name="iqama_no" />
+                            <field name="iqama_name" />
+                            <field name="iqama_expiry" />
+                            <field name="iqama_profession" />
+                            <field name="iqama_profession_ar" />
+                        </group>
+                    </group>
+                </page>
             </xpath>
             <field name="job_id" position="after">
                 <field name="job_location" />
@@ -84,7 +93,7 @@
                 <field name="visa_type" />
                 <field name="visa_category" />
             </xpath>
-            
+
             <xpath expr="//form/sheet/notebook" position="inside">
                 <page string="Medical Records">
                     <group>
@@ -111,7 +120,7 @@
                         </tree>
                     </field>
                 </page>
-                
+
                 <page string="IT">
                     <group>
                         <group>
@@ -125,7 +134,7 @@
                         </group>
                     </group>
                 </page>
-                
+
                 <page string="Accomodation History">
                     <field name="emp_event_accomodation_ids">
                         <tree string="Accomodation History" editable="bottom">
@@ -135,7 +144,7 @@
                         </tree>
                     </field>
                 </page>
-                
+
                 <page string="Transportation History">
                     <field name="emp_event_transportation_ids">
                         <tree string="Transportaion History" editable="bottom">
@@ -145,7 +154,7 @@
                         </tree>
                     </field>
                 </page>
-                
+
                 <page string="Accident History">
                     <field name="emp_event_accident_ids">
                         <tree string="Accident History" editable="bottom">
@@ -174,7 +183,7 @@
                     </field>
                 </page>
             </xpath>
-            
+
             <xpath expr="/form/sheet" position="inside">
                 <notebook>
                     <page string="HSE Incident History">
@@ -186,7 +195,7 @@
                             </tree>
                         </field>
                     </page>
-                    
+
                     <page string="Career Progression">
                         <field name="emp_event_career_ids">
                             <tree string="Career Progression" editable="bottom">
@@ -196,7 +205,7 @@
                             </tree>
                         </field>
                     </page>
-                    
+
                     <page string="Received Badges" attrs="{'invisible': [('user_id', '=', False)]}">
                         <field name="has_badges" invisible="1"/>
                         <button string="Grant a Badge" type="action" name="%(hr_gamification.action_reward_wizard)d"/> to reward this employee for a good action
@@ -209,7 +218,7 @@
                         </div>
                         <field name="badge_ids" mode="kanban" widget="many2many"/>
                     </page>
-                    
+
                     <page name="hr_settings" string="HR Settings" groups="hr.group_hr_user">
                         <group>
                             <group string='Status' name="active_group">
@@ -217,7 +226,7 @@
                             </group>
                         </group>
                     </page>
-                    
+
                     <page string="Docs to Upload" name='docs_to_upload'>
                         <field nolabel="1" name="docs_ids" context="{'default_employee_ext_id': active_id, 'default_res_model': 'hr.employee'}">
                             <tree editable="bottom">
