@@ -5,7 +5,9 @@
     'description': 'Adding fields to employee model',
     'author': 'Odoo Advantage Ireland',
     'website': 'www.erp.odoo.ie',
-    'depends': ['hr', 'hr_gamification', 'mail', 'base', 'account_asset'],
+    'depends': [
+        'hr', 'hr_gamification', 'mail', 'base', 'account_asset'
+    ],
     'data': [
         "security/ir.model.access.csv",
         'views/employee_ext_view.xml',

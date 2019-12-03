@@ -80,10 +80,10 @@
                 <field name="name_in_passport" />
                 <field name="passport_expiry" />
             </xpath>
-<!--            <xpath expr="//notebook/page[@name='personal_information']/group/group[6]/field[@name='visa_expire']" position="after">-->
-<!--                <field name="visa_type" />-->
-<!--                <field name="visa_category" />-->
-<!--            </xpath>-->
+            <xpath expr="//notebook/page[@name='personal_information']/group/group[6]/field[@name='visa_expire']" position="after">
+                <field name="visa_type" />
+                <field name="visa_category" />
+            </xpath>
             
             <xpath expr="//form/sheet/notebook" position="inside">
                 <page string="Medical Records">
