@@ -27,9 +27,9 @@
                 <attribute name='string'></attribute>
             </xpath>
             
-            <field name="user_id" position="after">
-                <field name="hr_responsible_id" />
-            </field>
+<!--            <field name="user_id" position="after">-->
+<!--                <field name="hr_responsible_id" />-->
+<!--            </field>-->
             
         </field>
     </record>
