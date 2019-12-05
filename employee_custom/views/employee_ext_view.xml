@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record model="ir.ui.menu" id="hr.menu_hr_root">
+        <field name="sequence">3</field>
+    </record>
+
     <record id="view_employee_filter_custom" model="ir.ui.view">
         <field name="name">hr.employee.search.custom</field>
         <field name="model">hr.employee</field>
