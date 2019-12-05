@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.menu" id="hr_recruitment.menu_hr_job_position">
+        <field name="sequence">2</field>
+    </record>
+
+    <!-- Inherited Kanban view -->
+<!--    <record id="view_hr_job_kanban_inherited_custom" model="ir.ui.view">-->
+<!--        <field name="name">hr.job.kanban.inherited.custom</field>-->
+<!--        <field name="model">hr.job</field>-->
+<!--        <field name="inherit_id" ref="hr_recruitment.view_hr_job_kanban"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <field name="name" position="after">-->
+<!--                <field name="hr_responsible_id" />-->
+<!--            </field>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!-- Inherited Job position form view -->
+    <record id="view_hr_job_form_custom" model="ir.ui.view">
+        <field name="name">hr.job.form.custom</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form" />
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group/group[@name='recruitment']" position="attributes">
+                <attribute name='string'></attribute>
+            </xpath>
+            
+<!--            <field name="user_id" position="after">-->
+<!--                <field name="hr_responsible_id" />-->
+<!--            </field>-->
+            
+        </field>
+    </record>
+    
+    <!-- Inherited Job position action, adding tree view mode. -->
+    <record id="hr_recruitment.action_hr_job" model="ir.actions.act_window">
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+    
+    <!-- Inherited Job position form view -->
+    <record id="hr_job_survey_custom" model="ir.ui.view">
+        <field name="name">hr.job.form1.custom</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="inside">
+                <group name="offer">
+                    <field name="reporting_manager" />
+                    <field name="assign_location" />
+                    <field name="years_experience" />
+                    <field name="edu_qualification" />
+                    <field name="languages"/>
+                    <field name="it_skills" widget="many2many_tags" options="{'no_create_edit':True, 'no_create':True}"/>
+                    <field name="nationalities" />
+                    <field name="visa_status" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+    
+    <!-- IT skills Tags action -->
+    <record id="action_tags_view" model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="res_model">it.skills</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+            Create tags
+            </p>
+        </field>
+    </record>
+    
+    <!-- IT Skills tags form view -->
+    <record id="tags_view_form" model="ir.ui.view">
+        <field name="name">tags.view.form</field>
+        <field name="model">it.skills</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- IT Skills tags tree view -->
+    <record id="tags_view_tree" model="ir.ui.view">
+        <field name="name">tags.view.tree</field>
+        <field name="model">it.skills</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    
+    <menuitem
+        id="tags_menu"
+        action="action_tags_view"
+        parent="hr_recruitment.menu_hr_recruitment_configuration"
+        sequence="100"
+    />
+    
+    
+</odoo>
