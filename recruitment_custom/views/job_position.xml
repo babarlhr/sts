@@ -6,27 +6,16 @@
     </record>
 
     <!-- Inherited Kanban view -->
-    <record id="view_hr_job_kanban_inherited_custom" model="ir.ui.view">
-        <field name="name">hr.job.kanban.inherited.custom</field>
-        <field name="model">hr.job</field>
-        <field name="inherit_id" ref="hr_recruitment.view_hr_job_kanban"/>
-        <field name="arch" type="xml">
-            <field name="name" position="after">
-                <field name="hr_responsible_id" />
-            </field>
-
-            <xpath expr="//templates/t/div/div[2]/t" position="after">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <br />
-                        <t t-if="record.hr_responsible_id.raw_value != ''">
-                            <b>HR Responsible :</b> <field name="hr_responsible_id"/><br/>
-                        </t>
-                    </div>
-                </div>
-            </xpath>
-        </field>
-    </record>
+<!--    <record id="view_hr_job_kanban_inherited_custom" model="ir.ui.view">-->
+<!--        <field name="name">hr.job.kanban.inherited.custom</field>-->
+<!--        <field name="model">hr.job</field>-->
+<!--        <field name="inherit_id" ref="hr_recruitment.view_hr_job_kanban"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <field name="name" position="after">-->
+<!--                <field name="hr_responsible_id" />-->
+<!--            </field>-->
+<!--        </field>-->
+<!--    </record>-->
 
     <!-- Inherited Job position form view -->
     <record id="view_hr_job_form_custom" model="ir.ui.view">
