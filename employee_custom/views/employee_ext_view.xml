@@ -210,26 +210,26 @@
                         </field>
                     </page>
 
-                    <page string="Received Badges" attrs="{'invisible': [('user_id', '=', False)]}">
-                        <field name="has_badges" invisible="1"/>
-                        <button string="Grant a Badge" type="action" name="%(hr_gamification.action_reward_wizard)d"/> to reward this employee for a good action
-                        <div class="oe_view_nocontent" attrs="{'invisible': [('has_badges', '=', True)]}">
-                            <p class="oe_view_nocontent_create">
-                                Click to grant this employee his first badge
-                            </p><p class="oe_grey">
-                                Badges are rewards of good work. Give them to people you believe deserve it.
-                            </p>
-                        </div>
-                        <field name="badge_ids" mode="kanban" widget="many2many"/>
-                    </page>
+<!--                    <page string="Received Badges" attrs="{'invisible': [('user_id', '=', False)]}">-->
+<!--                        <field name="has_badges" invisible="1"/>-->
+<!--                        <button string="Grant a Badge" type="action" name="%(hr_gamification.action_reward_wizard)d"/> to reward this employee for a good action-->
+<!--                        <div class="oe_view_nocontent" attrs="{'invisible': [('has_badges', '=', True)]}">-->
+<!--                            <p class="oe_view_nocontent_create">-->
+<!--                                Click to grant this employee his first badge-->
+<!--                            </p><p class="oe_grey">-->
+<!--                                Badges are rewards of good work. Give them to people you believe deserve it.-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                        <field name="badge_ids" mode="kanban" widget="many2many"/>-->
+<!--                    </page>-->
 
-                    <page name="hr_settings" string="HR Settings" groups="hr.group_hr_user">
-                        <group>
-                            <group string='Status' name="active_group">
-                                <field name="company_id" groups="base.group_multi_company"/>
-                            </group>
-                        </group>
-                    </page>
+<!--                    <page name="hr_settings" string="HR Settings" groups="hr.group_hr_user">-->
+<!--                        <group>-->
+<!--                            <group string='Status' name="active_group">-->
+<!--                                <field name="company_id" groups="base.group_multi_company"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                    </page>-->
 
                     <page string="Docs to Upload" name='docs_to_upload'>
                         <field nolabel="1" name="docs_ids" context="{'default_employee_ext_id': active_id, 'default_res_model': 'hr.employee'}">
